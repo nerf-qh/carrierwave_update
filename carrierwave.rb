@@ -1,19 +1,9 @@
 # frozen_string_literal: true
 
-# ruby carrierwave.rb
+require 'rubygems'
+require 'bundler'
 
-require 'bundler/inline'
-
-gemfile do
-  source 'https://rubygems.org'
-
-  gem 'dotenv'
-
-  gem 'fog-google'
-
-  gem 'carrierwave', '~> 2.0'
-  gem 'pry'
-end
+Bundler.require
 
 Dotenv.load
 
@@ -24,10 +14,10 @@ fog_creds = {
 }
 
 CarrierWave.configure do |config|
-  config.storage = :fog
   config.fog_credentials = fog_creds
   config.fog_directory  = ENV['GCS_BUCKET']
   config.fog_public     = true
+  config.storage = :fog
 end
 
 class Uploader < CarrierWave::Uploader::Base; end
