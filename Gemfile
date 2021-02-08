@@ -6,5 +6,5 @@ gem 'dotenv'
 
 gem 'fog-google'
 
-gem 'carrierwave', '~> 2.0.0'
+gem 'carrierwave', '~> 2.1.1'
 gem 'pry'
